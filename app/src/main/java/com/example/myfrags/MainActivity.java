@@ -9,6 +9,8 @@ import androidx.fragment.app.FragmentTransaction;
 
 import android.os.Bundle;
 
+
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
@@ -139,5 +141,23 @@ public class MainActivity extends FragmentActivity implements Fragment1.OnButton
         transaction.commit();
 
         hiden = false;
+    }
+
+    /**
+     * Naprawa działania clockwice
+     * Przy wykryciu nadciśnienia na "Back" zamieniamy rozstawienie ramek w tabeli
+     */
+
+
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        int t = frames[3];
+        frames[3] = frames[2];
+        frames[2] = frames[1];
+        frames[1] = frames[0];
+        frames[0] = t;
+
     }
 }
